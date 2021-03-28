@@ -7,6 +7,6 @@ Data Structures basically, starts with data and end up having Structures and the
 1. Stack – An Array like Data Structure whose elements follow the LIFO rule: Last in First out. We might compare it with the stock of books on the table: the last book placed on the stack of books is the first one that’s taken out.
    [Click Here to Learn More about Stacks](./draft1.md)
 
-2. Linked Lists – A data Structure that consist of nodes, each with some value and pointer to the next Node in the Linked List. Use Linked Lists to store item anywhere in memory. Be comfortable with iteration, insertion, and deletion within the singly and doubly linked lists. [Click Here to Learn more about Linked list](./draft1.md)
+2. Linked Lists – A data Structure that consist of nodes, each with some value and pointer to the next Node in the Linked List. Use Linked Lists to store item anywhere in memory. Be comfortable with iteration, insertion, and deletion within the singly and doubly linked lists. [Click Here to Learn more about Linked list](./draft2-linked-list.md)
 
-3. Tree – Use for representing hierarchical data. Learn about Depth height, leaf, traversal sequences, in-order traversal, pre-order traversal, and post-order traversal. [Click Here to Learn more about Trees](./draft1.md)
+3. Tree – Use for representing hierarchical data. Learn about Depth height, leaf, traversal sequences, in-order traversal, pre-order traversal, and post-order traversal. [Click Here to Learn more about Trees](./draft-2-tree.md)
