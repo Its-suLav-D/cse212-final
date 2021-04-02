@@ -8,6 +8,24 @@ We start at the top and follow path made up of folder till the end. Each folder 
 
 With the basic Idea of trees, lets shift our gear to Binary Search Trees and see how it works and how it implements the CRUD operation like the Linked List. There are many trees structure like binary search trees, heaps and tries however we will be focusing on binary search trees.
 
+### Tree Traversal
+
+There are some patterns that we use in trees to traverse. These usage patterns can be divided into the three ways that we access the nodes of the tree. The difference between these patterns is the order in which each node is visited. The three traversal are called preoder, inorder, and postorder. Let's now demistify what these three orders are:
+
+> \*Note Left subtree tree is always visited before right subtree, and only the position changes in these three different Traversal Method.
+
+1. Pre-order: Root -> Left -> Right. In this traversal method we visit the root node first, then go though all the left subtree and then visit the right subtree
+2. In-order: Left -> Root -> Right. In this traversal method, we visit the left subtree first, visit the root node and finally the right subtree
+3. Post-order: Left -> Right -> Root. In this traversal method, we visit left subtree, right subtree followed by the visit of the root node.
+
+##### Facts about Binary Search Tree
+
+Here are some facts about binary search tree that maybe helpful for you people.
+
+> 1. Inorder Traversal of BST is an array sorted in the ascending order.
+> 2. Successor means after node i.e the next node, or the smallest node after the current node. In order to find the successor we go once to the right and then as many time as left as we possibily can.
+> 3. Predecessor means before node i.e the previous node, or the largest node before the current. In order to find the predecessor we go once to the left and then as many time as right as we possibily can.
+
 ### Binary Search Tree 𐂷
 
 A BST follows a data that keys less than the parent node are found in the left subtree, and the keys that are greater than parent are found in the right sub tree. A binary search tree must have at most two children. This property is also known as bst property.
@@ -48,3 +66,39 @@ So the maximum + 1 would return 0 in the leaf.
 Now, we do a recursive call to the nodes and keep looking the left and right value and return the height from the node.
 
 ![GitHub Logo](./bst_height.png)
+
+#### Deletion in a Binary Search Tree
+
+Deletion is a bit complicated and there are way more strategies to delete a particular. The solution that we are going to talk here is about replacing the targeted the node with proper child. There are three diferrent cases that we need to consider before deleting a node in a binary search Tree.
+
+> 1. If the targeted node has no child, we can simply remove the node.
+> 2. If the targeted node has one child, we can use its child to replace itself.
+> 3. If the targeted node has two child, check if the node has right child, then find minimum from that right subtree, replace the node with the minimum value and delet the minimum value which was found. Similarly, if the node has left chidl, then find maximum fro the left subtree, replace the node.value with the maximum value and delete the maximum value which was found.
+
+![Github Logo](./del_part_1.png)
+
+Algorithm:
+
+    1. Check if the input > root.value, then the node to be deleted should be in the right-subtree.
+    2. Check if the input < root.value, then the node to be deleted should be in the left-subtree.
+    3. if the input == root.value, ahaa momemt , use you three cases:
+        a. if the node is the leaf, then our life is easier we just write root.val = null
+        b. If the node has no leaf, has the left child, the we find the maximum value from the left-subtree i.e Predecessor and recursively delete the value in the left subtree.
+        c. If the node has no leaf, has the right child, then we find the minimum value from the right-subtree i.e Successor and recursively delete the value value in the right subtree.
+
+Try on you own, with the help of the above algorithm. Like always, if you can't solve it here is the solution for the problem.
+
+[Solution_deletion_bst](./solution_deletion_bst.md)
+
+Binary Search Tree Standard Operations:
+
+| S.n | Binary Search Tree          |
+| --- | --------------------------- |
+| 1   | Insertion : O(log n)        |
+| 2   | Remove : O(log n)           |
+| 4   | Contains: O (log n)         |
+| 5   | Traverse Forward : O(log n) |
+| 6   | Traverse Reverse: O (log n) |
+| 7   | Height: O(log n )           |
+| 8   | Size: O(1)                  |
+| 9   | Empty: O(1)                 |

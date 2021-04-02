@@ -78,3 +78,14 @@ Let me help you to solve this question and see how can we use stack to solve que
 > Starting with an empty stack, we need to process the parenthesis, push it on the stack as a signal that a corresponding closing symbol needs to appear later. If we see a closing parenthesis, we are going to pop the stack. Now, as long as it is possible top pop the stack to match every closing symbol, the parenthesis remains balanced. If there is no closing parenthesis or vice, we now know that it is not balanced and will return false. At the end of the string when all symbols have been processed, the stack should be empty right? Let’s use python to see how this would look in the code
 
 ![GitHub Logo](./valid_parenthesis.png)
+
+Now, its your turn to solve a problem similar to the question above instead of checking for the just a paranthesis in the upcoming problem you are going to check for other symbols as well.
+
+Given a string containing the mixture of charaters determine if the input string is valid.
+
+1. Open bracket must be closed in the correct order for the string to be valid.
+
+For example: ([)]
+Example 2: {{([][])}}
+
+[Solution for the Problem ](./solution_valid_mixture.md)

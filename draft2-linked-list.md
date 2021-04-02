@@ -118,13 +118,18 @@ Somewhere where it is not head, we have to make the previous node point to the n
 
 ```
 
-Let’s see the linked list standard operations:
+Let’s compare the linked list standard operations and dynamic array operations:
 
-1. Insertion: O(1)
-2. Deletion: O(1)
-3. Searching: O(n)
+| S.n | Linked List               | Array                     |
+| --- | ------------------------- | ------------------------- |
+| 1   | Insertion at Front : O(1) | Inserttion at Front: O(n) |
+| 2   | Insertion at Middle: O(n) | Insertion at Middle: O(n) |
+| 4   | Insertion at End: O(1)    | Insertion at End: O(1)    |
+| 5   | Remove Front: O(1)        | Remove Front: O(n)        |
+| 6   | Remove Middle: O(n)       | Remove End: O(n)          |
+| 7   | Remove End: O(1)          | Remove End: O(1)          |
 
-Well we have covered everything needed now let's change our gear and try a classic problem which is to reverse a Linked List
+Well we have covered everything needed now let's change our gear and try a classic problem which is to reverse a singly Linked List
 
 ```
     """
@@ -136,19 +141,38 @@ Well we have covered everything needed now let's change our gear and try a class
     Algorithm:
         Iterative
         From the given list we can change it to 0 <- 1 <-2 <-3 <-4  <-5
-        While we travese the list, we are going to change the current node's next pointer to its previous element. Note* , Since a node doesn't have a reference to previous node, we must store as null before starting. We also need another pointer to store the next node.
-
-        We use a temporary variable temp to point towards the next node of the head node and also link the next field of the temp.
+        Let's take two node from the List  i.e 2 -> 3, now If we want to reverse the list we are just going to change the pointer right ? so, it would look something like thi 2 <-3. In order to do that we are going to create two variable previous and Current Node. If our current node was 1 then previous would be Null, that's exactly the logic in line 149.Now, we just say that current node.next should point to previous. Now, doing so we just changed the pointer from 2 -> 3 to 3 <-2. Okay, now what about the rest right ? well if we do like this we have disconnected the wire and we have no way to go forwad so we need to track the nextNode and change the position of the vairable until currentNode is none. So, before changing the pointer we want to keep track of the nextNode, change the pointer, set the previous_Node to the current_node and currentNode to nextNode.
     """
-    def reverse_list(self,data):
-        prev = None
-        curr_node = self.head
+    class LinkedList:
+        def __init__(self,value):
+            self.value = value
+            self.next = None
 
-        while curr_node not None:
-            temp = curr_node.next
-            curr_node.next = self.prev
-            self.prev = self.curr_node
-            self.curr_node = temp
-        return self.prev
+    class reverseList(head):
+        previous, current_node =  None, head
+        while current_node is not None:
+            nextNode = currentNode.next
+            // Point the next of the currentnode to the previous node
+            currentNode.next = previous
+            previous = currentNode
+            currentNode = nextNode
+        return previous
+
+    #RESULT
+    5 -> 4 -> 3 -> 2 -> 1
 
 ```
+
+Since you have grasped the gist of the linked List, lets try some hand's on exeperience by doing some question.
+
+#### Question 2: Remove Duplicates from the Linked List
+
+You are given a singly linked list and we have to remove the duplicates from the linked List.
+
+Input : 1 -> 1 -> 3 -> 4 -> 4 -> 4 -> 5 -> 6 -> 7 -> 8
+
+Output: 1-> 3 -> 4 -> 5 -> 6 -> 7 -> 8
+
+Try on your own and if you struggle, here is solution for you.
+
+[Solution Remove Dupliactes](./solution_duplicate.md)
